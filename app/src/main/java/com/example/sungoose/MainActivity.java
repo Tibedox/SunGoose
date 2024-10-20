@@ -42,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         textTitle.setText(title);
-        if(counter%10>1 && counter%10<5 && counter/10%10!=1){
-            textCounter.setText("Потапано "+counter+" раза");
-        } else {
-            textCounter.setText("Потапано " + counter + " раз");
-        }
+        textCounter.setText("Потапано "+counter+(counter%10>1 && counter%10<5 && counter/10%10!=1 ? " раза" : " раз"));
     }
 }
