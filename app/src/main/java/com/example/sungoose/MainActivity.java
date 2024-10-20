@@ -1,9 +1,6 @@
 package com.example.sungoose;
 
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 import android.widget.TextView;
 
@@ -36,13 +33,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void tapGoose(View view) {
         counter += 1;
-        if(counter > 10) {
-            title = "Хорошо тапаешь! Продолжай.";
+        switch (counter) {
+            case 10: title = "Хорошо тапаешь! Продолжай."; break;
+            case 21:
+            case 22: title = "Гусь доволен. Тапай."; break;
+            case 30: title = "Да ты просто гений!"; break;
+            default: title = "Тапай гуся аккуратно.";
         }
-        if(counter > 20) {
-            title = "Гусь доволен. Тапай.";
-        }
+
         textTitle.setText(title);
-        textCounter.setText("Потапано "+counter+" раз");
+        if(counter%10>1 && counter%10<5 && counter/10%10!=1){
+            textCounter.setText("Потапано "+counter+" раза");
+        } else {
+            textCounter.setText("Потапано " + counter + " раз");
+        }
     }
 }
